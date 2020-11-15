@@ -15,7 +15,7 @@ for (var pair of options.headers.entries()) {
  
 // use this display function 
 
-function displayResults(responseJson) {
+function displayEvents(responseJson) {
     $('.removable').remove();
     console.log(typeof responseJson);
     console.log(responseJson);
@@ -25,8 +25,10 @@ function displayResults(responseJson) {
             <p> Date: ${responseJson._embedded.events[i].dates.start.localDate}</p>
             <p> Venue: ${responseJson._embedded.events[i]._embedded.venues[0].name}</p>
             <p> Address: ${responseJson._embedded.events[i]._embedded.venues[0].address.line1}</p>
-            <p>          ${responseJson._embedded.events[i]._embedded.venues[0].city.name}, ${responseJson._embedded.events[i]._embedded.venues[0].state.name} ${responseJson._embedded.events[i]._embedded.venues[0].postalCode}</p></li>
-            <button type="submit" class="weather">Get Weather Forecast</button>
+            <p> ${responseJson._embedded.events[i]._embedded.venues[0].city.name}, ${responseJson._embedded.events[i]._embedded.venues[0].state.name} ${responseJson._embedded.events[i]._embedded.venues[0].postalCode}</p>
+            <p class="latlong"> Lat: <b class="lat">${responseJson._embedded.events[i]._embedded.venues[0].location.latitude}</b> Long: <b class="long">${responseJson._embedded.events[i]._embedded.venues[0].location.longitude}</b></p>
+            
+            <button type="submit" class="event">Get Weather Forecast</button></li>
             `);
     //    }
     $('.results').removeClass('hidden');
@@ -68,25 +70,42 @@ function getEvents(eInput, sInput) {
             throw new Error(response.statusText);
         }
     })
-    .then(responseJson => displayResults(responseJson))
-    .catch(error => {$('.error-message').text(`Something went wrong: ${error.message}`);
+    .then(responseJson => displayEvents(responseJson))
+    .catch(error => {$('.error-message').text(`Something went wrong getting events: ${error.message}`);
     $('.error-message').removeClass('hidden')});
 
 }
 
 function search() {
-    $('form').on('click','button', event => {
+    $('form').on('click',"button[class='search']", event => {
         event.preventDefault();
         let eInput = $('#eInput').val();
         let sInput = $('#sInput').val();
         console.log(eInput + ' ' + sInput);
         getEvents(eInput, sInput);
+
+
+    });
+}
+
+function weather() {
+    $('ul').on('click',"button[class='event']", event => {
+        event.preventDefault();
+        let lat = $(event.currentTarget).prev().children('.lat').text();
+        let long = $(event.currentTarget).prev().children('.long').text();
+        console.log(lat + long);
+        /*
+        let sInput = $('#sInput').val();
+        console.log(eInput + ' ' + sInput);
+        getEvents(eInput, sInput);
+        */
+    
     });
 }
 
 function masterFunction() {
     search();
-
+    weather();
 }
 
 $(masterFunction);
