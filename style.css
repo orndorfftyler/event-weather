@@ -1,0 +1,25 @@
+.wrapper {
+    margin: auto;
+    text-align: center;
+}
+
+form {
+    display:flex;
+    flex-direction: column;
+}
+
+input {
+    width: 250px;
+    margin:auto;
+    margin-top: 10px;
+}
+
+button {
+    width:70px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.hidden {
+    display: none;
+}
