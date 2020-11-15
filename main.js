@@ -2,6 +2,7 @@ const searchURL = 'https://app.ticketmaster.com/discovery/v2/events.json';
 
 const api_key = 'I3s7HGdzn7Y33zNiigtvz7tnmXdNJqMV';
 
+// not using options??
 const options = {
     headers: new Headers({
     'accept':'application/vnd.github.v3+json'})
@@ -16,17 +17,24 @@ for (var pair of options.headers.entries()) {
 
 function displayResults(responseJson) {
     $('.removable').remove();
+    console.log(typeof responseJson);
     console.log(responseJson);
     //if (responseJson.limit != 0) {
-        for (let i = 0; i < responseJson.data.length; i++) {
-            $('.results-list').append(`<li class="removable"><p>${responseJson.data[i].fullName}</p>
-            <p></p>
-            <p>${responseJson.data[i].description}</p>
-            <a href="${responseJson.data[i].url}" target="_blank">${responseJson.data[i].url}</a></li>`);
+        for (let i = 0; i < responseJson._embedded.events.length; i++) {
+            $('.results-list').append(`<li class="removable"><p>${responseJson._embedded.events[i].name}</p>
+            <p> Date: ${responseJson._embedded.events[i].dates.start.localDate}</p>
+            <p> Venue: ${responseJson._embedded.events[i]._embedded.venues[0].name}</p>
+            <p> Address: ${responseJson._embedded.events[i]._embedded.venues[0].address.line1}</p>
+            <p>          ${responseJson._embedded.events[i]._embedded.venues[0].city.name}, ${responseJson._embedded.events[i]._embedded.venues[0].state.name} ${responseJson._embedded.events[i]._embedded.venues[0].postalCode}</p></li>
+            <button type="submit" class="weather">Get Weather Forecast</button>
+            `);
     //    }
     $('.results').removeClass('hidden');
     }
 }
+
+//             <p> Info: ${responseJson._embedded.events[i].pleaseNote}</p>
+
 
 function paramFormat(params) {
     const queryItems = Object.keys(params)

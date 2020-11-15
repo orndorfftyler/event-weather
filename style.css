@@ -20,6 +20,10 @@ button {
     margin-top: 10px;
 }
 
+.weather {
+    width:140px;
+}
+
 .hidden {
     display: none;
 }
