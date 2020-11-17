@@ -82,7 +82,7 @@ function search() {
     $('form').on('click',"button[class='search']", event => {
         event.preventDefault();
         let eInput = $('#eInput').val();
-        let sInput = $('#sInput').val();
+        let sInput = $('#state-select').val();
         console.log(eInput + ' ' + sInput);
         getEvents(eInput, sInput);
 
@@ -109,18 +109,17 @@ function displayWeather(responseJson,itemID) {
     console.log(responseJson);
     //let targetDate = dateCalc(date);
 
-
-    let date = new Date(responseJson.daily[0].dt*1000);
-        $(`li[id=${itemID}]`).append(`<div class="removable weather">
-        <p>${date}</p>
-        <img src="http://openweathermap.org/img/wn/${responseJson.daily[0].weather[0].icon}@2x.png" alt="weather icon matching description">
-        <p> Weather: ${responseJson.daily[0].weather[0].description} </p>
-        <p> Max Temp: ${responseJson.daily[0].temp.max}</p>
-        <p> Min Temp: ${responseJson.daily[0].temp.min}</p>
-        <p> Wind Speed: ${responseJson.daily[0].wind_speed} mph</p>
-        
-        <button type="submit" class="wHide">Hide</button>
-        </div>`);
+    let date = new Date(responseJson.daily[0].dt*1000).toISOString().slice(0,10);
+    $(`li[id=${itemID}]`).append(`<div class="removable weather">
+    <p>Date: ${date}</p>
+    <img src="http://openweathermap.org/img/wn/${responseJson.daily[0].weather[0].icon}@2x.png" alt="weather icon matching description">
+    <p> Weather: ${responseJson.daily[0].weather[0].description} </p>
+    <p> Max Temp: ${responseJson.daily[0].temp.max}</p>
+    <p> Min Temp: ${responseJson.daily[0].temp.min}</p>
+    <p> Wind Speed: ${responseJson.daily[0].wind_speed} mph</p>
+    
+    <button type="submit" class="wHide">Hide</button>
+    </div>`);
     //$('.results').removeClass('hidden');
     
 }
@@ -165,7 +164,7 @@ function upgradeMessage(itemID,daysToGo) {
     $(`li[id=${itemID}]`).append(`<div class="removable weather">
     <p>Upgrade to get weather for events up to 30 days out!</p>
     <img src="http://openweathermap.org/img/wn/11d@2x.png" alt="weather icon matching description">
-    <p> Event is ${Math.floor(daysToGo)} days away</p>
+    <p> Event is over ${Math.floor(daysToGo)} days away</p>
     <button type="submit" class="wHide">Hide</button>
     </div>`);
 }

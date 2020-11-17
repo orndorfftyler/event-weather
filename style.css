@@ -62,3 +62,8 @@ div {
 .description {
     text-align: center;
 }
+
+select {
+    width:200px;
+    margin: auto;
+}
