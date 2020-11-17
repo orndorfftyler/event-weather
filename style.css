@@ -14,6 +14,27 @@ input {
     margin-top: 10px;
 }
 
+h2 {
+    text-align: center;
+}
+
+.results {
+    width:50%;
+    margin:auto;
+    padding:0;
+}
+
+li {
+    text-align: center;
+    margin:15px 0;
+}
+
+.container {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 button {
     width:70px;
     margin: auto;
@@ -26,4 +47,18 @@ button {
 
 .hidden {
     display: none;
+}
+
+.weather {
+    list-style:none;
+}
+
+div {
+    width:350px;
+    background:rgb(185, 211, 245);
+    
+}
+
+.description {
+    text-align: center;
 }
