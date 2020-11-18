@@ -10,10 +10,10 @@ const apiKeyOW = 'ca33e47fabc12863ac34ba82ffb21974';
 
 function displayEvents(responseJson) {
     $('.removable').remove();
-    console.log(responseJson.page.totalElements);
+    //console.log(responseJson.page.totalElements);
     if (responseJson.page.totalElements > 0) {
-        console.log(typeof responseJson);
-        console.log(responseJson);
+        //console.log(typeof responseJson);
+        //console.log(responseJson);
         for (let i = 0; i < responseJson._embedded.events.length; i++) {
             $('.results-list').append(`<li id="${cuid()}" class="removable container"><div><p>${responseJson._embedded.events[i].name}</p>
             <p class="date"> Date: <b>${responseJson._embedded.events[i].dates.start.localDate}</b></p>
@@ -50,7 +50,7 @@ function getEvents(eInput, sInput) {
     
     let prettyParams = paramFormat(params);
     const url = `${searchURL_TM}?${prettyParams}`;
-    console.log(url);
+    //console.log(url);
 
     fetch(url)
     .then(response => {
@@ -78,7 +78,7 @@ function search() {
             eInput.splice(6);
         }
         eInput = eInput.join(',');
-        console.log(typeof eInput + eInput + ' ' + sInput);
+        //console.log(typeof eInput + eInput + ' ' + sInput);
         getEvents(eInput, sInput);
     });
 }
@@ -88,14 +88,15 @@ function search() {
 // -------------------------------------------- Begin weather management functions
 
 function displayWeather(responseJson,itemID,day) {
-    console.log(typeof responseJson);
-    console.log(responseJson);
+    //console.log(typeof responseJson);
+    //console.log(responseJson);
     /*
     the day parameter will be the value of dayIndex which is calculated in function check7
     see function check7 comments for details
     */
+   // <p>${day}</p>
+
     $(`li[id=${itemID}]`).append(`<div class="removable weather">
-    <p>${day}</p>
     <img src="http://openweathermap.org/img/wn/${responseJson.daily[day].weather[0].icon}@2x.png" alt="weather icon matching description">
     <p> Weather: ${responseJson.daily[day].weather[0].description} </p>
     <p> Max Temp: ${responseJson.daily[day].temp.max}</p>
@@ -118,7 +119,7 @@ function getWeather(lat, long, itemID, day) {
 
     let prettyParams = paramFormat(params);
     const url = `${searchURL_OW}?${prettyParams}`;
-    console.log(url);
+    //console.log(url);
 
     fetch(url)
     .then(response => {
@@ -192,7 +193,7 @@ function weather() {
         // prevents multiple forcasts for same event
         if ($(`li[id=${itemID}]`).children('.weather').length == 0) { 
             if (dayDiff[0]) {  // If event is < 7 days out          
-                console.log(lat + long + itemID);
+                //console.log(lat + long + itemID);
                 getWeather(lat,long,itemID,dayDiff[1]);
             } else {
                 //prompt to upgrade and display days to go
