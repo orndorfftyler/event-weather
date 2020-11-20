@@ -9,9 +9,12 @@
 </head>
 
 <body>
-    <h1 class="wrapper">Event Weather</h1>
-    <p class="description">Are you attending an event within the next week? Trying to decide what to wear? You are in the right place!</p>
-    <form class="wrapper">
+    <p class="hidden2">Welcome to the event weather app!</p>
+    <section>
+    <h1 class="wrapper hidden1">Event Weather</h1>
+    <p class="description hidden1">Are you attending an event within the next week? Trying to decide what to wear?</p>
+    <p class="description hidden1">You are in the right place!</p>
+    <form class="wrapper hidden1">
         <label for="event">Event:</label>
         <input name="event" type="text" id="eInput" required>
         <label for="state">State:</label>
@@ -71,6 +74,7 @@
         </select>
         <button type="submit" class="search">Submit</button>
     </form>
+    </section>
 
     <p id="js-error-message" class="error-message"></p>
 

@@ -205,10 +205,30 @@ function weather() {
 
 // -------------------------------------------- End weather management functions
 
+// -------------------------------------------- styling functions
+/*
+function titleCard() {
+    $('.hidden2').mouseover(function() {
+        $(this).fadeTo(1000, 0, function() {
+            $('.hidden2').addClass('hidden3');
+        });
+    });
+}
+*/
+
+function titleCard() {
+    $('.hidden2').mouseover(function() {
+        $(this).animate({'margin-left':'10px', opacity:0, display:'none'},1000);
+    });
+}
+
+// -------------------------------------------- end styling functions
+
 function masterFunction() {
     search();
     weather();
     hideWeather();
+    titleCard();
 }
 
 $(masterFunction);
