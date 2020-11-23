@@ -3,19 +3,10 @@
     text-align: center;
 }
 
-li {
-    background:red;
-}
-
 .hidden1 {
     /*display:none;*/
 }
 
-div {
-    width:350px;
-    background:#F8EDEB;
-    border-radius: 30px;
-}
 
 /*
 .cup {
@@ -27,18 +18,60 @@ div {
 .hidden2 {
     position: fixed;
     text-align:center;
-    font-size: 72px;
-    width:600px;
+    font-size: 96px;
+    width:660px;
     /*margin-top: 10%;*/
     border-radius:30px;
     background:#e5989b;
     padding:20px;
-    height: 274px;
-    margin-top: 147px;
+    height: 334px;
+    margin-top: 177px;
     margin-left: 50vw;
     /* bring your own prefixes */
     transform: translate(-50%, -50%);
+    font-family:'Lobster',sans-serif;
   }
+
+h1 {
+    font-family:'Lobster',sans-serif;
+    font-size: 86px;
+}
+
+.description {
+    font-family:'Fjalla One',sans-serif;
+    font-size: 22px;
+}
+
+label {
+    font-family:sans-serif;
+    font-size: 26px;
+    margin-top:50px;
+}
+
+form div {
+
+}
+
+input {
+    width: 300px;
+    margin-left:10px;
+    margin-bottom: 10px;
+    font-size:26px;
+    font-family:sans-serif;
+    border-radius: 10px;;
+}
+
+select {
+    font-size:26px;
+    width: 300px;
+    border-radius: 10px;;
+}
+
+li div {
+    width:350px;
+    background:#F8EDEB;
+    border-radius: 30px;
+}
 
 section {
     margin-top: 30px;
@@ -57,11 +90,6 @@ form {
     flex-direction: column;
 }
 
-input {
-    width: 250px;
-    margin:auto;
-    margin-top: 10px;
-}
 
 h2 {
     text-align: center;
