@@ -3,31 +3,22 @@
     text-align: center;
 }
 
-.hidden1 {
-    /*display:none;*/
+p {
+    font-family:'Fjalla One',sans-serif;
+    font-size: 22px;
 }
-
-
-/*
-.cup {
-    position:relative;
-    width:100%;
-}
-*/
 
 .hidden2 {
     position: fixed;
     text-align:center;
     font-size: 96px;
     width:660px;
-    /*margin-top: 10%;*/
     border-radius:30px;
     background:#e5989b;
-    padding:20px;
-    height: 334px;
-    margin-top: 177px;
+    padding:60px 20px;
+    height: 354px;
+    margin-top: 227px;
     margin-left: 50vw;
-    /* bring your own prefixes */
     transform: translate(-50%, -50%);
     font-family:'Lobster',sans-serif;
   }
@@ -38,47 +29,48 @@ h1 {
 }
 
 .description {
-    font-family:'Fjalla One',sans-serif;
-    font-size: 22px;
+    font-size: 24px;
+    text-align: center;
 }
 
 label {
-    font-family:sans-serif;
-    font-size: 26px;
-    margin-top:50px;
+    font-family:'Fjalla One',sans-serif;
+    font-size: 24px;
+    margin-right:10px;
 }
 
-form div {
-
+.state {
+    width:600px;
+    height:42px;
+    margin:auto;
+    margin-top:12px;
 }
 
 input {
-    width: 300px;
-    margin-left:10px;
+    width: 500px;
     margin-bottom: 10px;
-    font-size:26px;
-    font-family:sans-serif;
+    height:40px;
+    font-size:24px;
+    font-family:'Fjalla One',sans-serif;
     border-radius: 10px;;
 }
 
 select {
-    font-size:26px;
+    font-size:24px;
+    font-family:'Fjalla One',sans-serif;
     width: 300px;
+    height:40px;
     border-radius: 10px;;
 }
 
 li div {
-    width:350px;
-    background:#F8EDEB;
+    width:500px;
+    background:#ffffff;
     border-radius: 30px;
 }
 
 section {
     margin-top: 30px;
-}
-
-.hidden2:hover {
-   /* transition: opacity 3s ease-in-out; */ 
 }
 
 .hidden3 {
@@ -92,7 +84,9 @@ form {
 
 
 h2 {
+    font-family:'Fjalla One',sans-serif;
     text-align: center;
+    font-size: 30px;
 }
 
 .results {
@@ -114,19 +108,20 @@ li {
 }
 
 button {
-    font-size:16px;
-    font-family: 'Segoe UI', sans-serif;
+    font-size: 24px;
+    font-family:'Fjalla One',sans-serif;
     outline:none;
-    background:#fec89a;
+    background:#FFB5A7;
+    /*background:#fec89a;*/
     border-radius: 10px;
     border:none;
-    margin-bottom: 10px;
 }
 
 button.search {
-    width:70px;
+    width:100px;
+    height:40px;
     margin: auto;
-    margin-top: 10px;
+    margin-top:20px;
     border-radius: 10px;
     background:#F8EDEB;
   }
@@ -136,16 +131,20 @@ body {
 }
 .weather {
     list-style:none;
-    margin-left: 10px;
+    margin-left: 15px;
     border-radius: 30px;
-    background:#F8EDEB;
+    background:#ffffff;
 }
 
 
 button.event {
+    margin-bottom: 10px;
 }
 
 button.wHide {
+    margin-bottom: 10px;
+    width:80px;
+    height:50px;
 }
 
 .event {
@@ -156,13 +155,9 @@ button.wHide {
     display: none;
 }
 
-
-.description {
-    text-align: center;
-}
-
 select {
     width:200px;
     margin: auto;
+    height:42px;
 }
 

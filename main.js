@@ -10,10 +10,7 @@ const apiKeyOW = 'ca33e47fabc12863ac34ba82ffb21974';
 
 function displayEvents(responseJson) {
     $('.removable').remove();
-    //console.log(responseJson.page.totalElements);
     if (responseJson.page.totalElements > 0) {
-        //console.log(typeof responseJson);
-        //console.log(responseJson);
         for (let i = 0; i < responseJson._embedded.events.length; i++) {
             $('.results-list').append(`<li id="${cuid()}" class="removable container"><div><p>${responseJson._embedded.events[i].name}</p>
             <p class="date"> Date: <b>${responseJson._embedded.events[i].dates.start.localDate}</b></p>
@@ -50,7 +47,6 @@ function getEvents(eInput, sInput) {
     
     let prettyParams = paramFormat(params);
     const url = `${searchURL_TM}?${prettyParams}`;
-    //console.log(url);
 
     fetch(url)
     .then(response => {
@@ -78,7 +74,6 @@ function search() {
             eInput.splice(6);
         }
         eInput = eInput.join(',');
-        //console.log(typeof eInput + eInput + ' ' + sInput);
         getEvents(eInput, sInput);
     });
 }
@@ -88,13 +83,10 @@ function search() {
 // -------------------------------------------- Begin weather management functions
 
 function displayWeather(responseJson,itemID,day) {
-    //console.log(typeof responseJson);
-    //console.log(responseJson);
     /*
     the day parameter will be the value of dayIndex which is calculated in function check7
     see function check7 comments for details
     */
-   // <p>${day}</p>
 
     $(`li[id=${itemID}]`).append(`<div class="removable weather">
     <img src="http://openweathermap.org/img/wn/${responseJson.daily[day].weather[0].icon}@2x.png" alt="weather icon matching description">
@@ -119,7 +111,6 @@ function getWeather(lat, long, itemID, day) {
 
     let prettyParams = paramFormat(params);
     const url = `${searchURL_OW}?${prettyParams}`;
-    //console.log(url);
 
     fetch(url)
     .then(response => {
@@ -154,9 +145,7 @@ function check7(date) {
     let now = new Date(); // grabs current date
     let diff = (date3 - now); // finds the number of milliseconds between the event date and current date
 
-    //console.log('diff is ' + diff);
     diff = diff/86.4e6; // milliseconds to days conversion
-    //console.log('diff in days ' + diff);
     /*
     dayIndex is eventually passed to displayWeather and is used to select the correct index of responseJson.daily
     responseJson.daily is an array of length 8. Index 0 has weather for today and index 7 has weather for the 
@@ -193,7 +182,6 @@ function weather() {
         // prevents multiple forcasts for same event
         if ($(`li[id=${itemID}]`).children('.weather').length == 0) { 
             if (dayDiff[0]) {  // If event is < 7 days out          
-                //console.log(lat + long + itemID);
                 getWeather(lat,long,itemID,dayDiff[1]);
             } else {
                 //prompt to upgrade and display days to go
@@ -205,16 +193,7 @@ function weather() {
 
 // -------------------------------------------- End weather management functions
 
-// -------------------------------------------- styling functions
-/*
-function titleCard() {
-    $('.hidden2').mouseover(function() {
-        $(this).fadeTo(1000, 0, function() {
-            $('.hidden2').addClass('hidden3');
-        });
-    });
-}
-*/
+// -------------------------------------------- intro fade styling function
 
 function titleCard() {
     $('.hidden2').mouseover(function() {
@@ -222,7 +201,7 @@ function titleCard() {
     });
 }
 
-// -------------------------------------------- end styling functions
+// -------------------------------------------- end intro fade styling function
 
 function masterFunction() {
     search();
