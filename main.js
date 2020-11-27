@@ -87,7 +87,6 @@ function displayWeather(responseJson,itemID,day) {
     the day parameter will be the value of dayIndex which is calculated in function check7
     see function check7 comments for details
     */
-
     $(`li[id=${itemID}]`).append(`<div class="removable weather">
     <img src="http://openweathermap.org/img/wn/${responseJson.daily[day].weather[0].icon}@2x.png" alt="weather icon matching description">
     <p> Weather: ${responseJson.daily[day].weather[0].description} </p>
