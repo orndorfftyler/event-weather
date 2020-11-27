@@ -8,6 +8,12 @@ p {
     font-size: 16px;
 }
 
+img {
+    background-color:lightblue;
+    border-radius: 10px;
+    margin-top:15px;
+}
+
 .hidden2 {
     position: fixed;
     text-align:center;
@@ -154,7 +160,7 @@ select {
     height:42px;
 }
 
-@media all and (min-width: 800px) {
+@media all and (min-width: 1000px) {
 
     .hidden2 {
         display:block;
@@ -193,4 +199,9 @@ select {
     li div {
         width:500px;
     }
+
+    button.wHide {
+        height:30px;
+    }
+
 }
