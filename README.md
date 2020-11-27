@@ -3,10 +3,10 @@
 [https://orndorfftyler.github.io/event-weather/](https://orndorfftyler.github.io/event-weather/)
 
 ## Search Screen
-![search screen](/search-screen.png?raw=true)
+![search screen](/search-screen.PNG)
 
 ## Search Results
-![Search results](/search-results.png?raw=true)
+![Search results](/search-results.PNG?raw=true)
 
 
 ## Summary
